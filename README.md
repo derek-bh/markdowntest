@@ -6,6 +6,10 @@ Please visit <a href="http://pangdata.com" target="_blank">https://pangdata.com<
 #### Minimum requirements ####
 To run the application you will need **Java 1.5+**.
 
+#### Supported OS ####
+* CentOS
+
+
 #### Installation ####
 Very easy to install ^^.
 
@@ -34,17 +38,6 @@ pang.period=15
 Note: User key can be found in your profile of Pangdata.com
 
 ###### Step 2-2: Confgiure partition in centos7.properties
-```bash
-########################################
-# Insert filesystem name
-# ex)df.key.# = filesystem_name
-########################################
-df.key.1 = _PARTITION_NAME
-########################################
-``` 
-Note: You can add multiple partitions using syntax 'df.key.[index]'.
-
-###### Step 2-3: Confgiure processes in centos7.properties
 type "df"
 ```bash
 [prever@localhost ~]$ df
@@ -63,7 +56,21 @@ tmpfs                      790616        0    790616   0% /run/user/1002
 tmpfs                      790616        0    790616   0% /run/user/1000
 ``` 
 
-get filesystem unique name
+get filesystem unique name and config it
+```bash
+########################################
+# Insert filesystem name
+# ex)df.key.# = filesystem_name
+########################################
+df.key.1 = centos-root
+df.key.2 = centos-home
+########################################
+``` 
+Note: You can add multiple partitions using syntax 'df.key.[index]'.
+
+###### Step 2-3: Confgiure processes in centos7.properties
+
+ps -e -o cmd
 ```bash
 ########################################
 # Insert process unique name
